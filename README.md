@@ -10,8 +10,8 @@
 ~~~
 git init
 git add *
-git commit -m "0301a"
+git commit -m "0819a"
 git branch -M main
-git remote add origin https://github.com/efgarro/2024-v03-SCR-API.git
+git remote add origin https://github.com/efgarro/2024v10-SCR-API.git
 git push -u origin main
 ~~~
