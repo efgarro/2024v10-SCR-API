@@ -81,7 +81,7 @@ export const apiRouter = Router();
 
 apiRouter.get(
   "/users",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   getUsers
 );
 

@@ -6,11 +6,11 @@ const { Pool } = pg;
 // const pgPoolPassword = process.env.PG_PWD;
 
 const pool = new Pool({
-      host: "localhost",
+      host: "54.205.165.107",
       port: 5432,
-      database: "2024-v03-scr-db",
+      database: "2024v10-scr-db",
       user: "efgarro",
-      password: "efgarro",
+      password: "Due427ga",
     })
 
 export const query = (text, params) => pool.query(text, params);

@@ -3,7 +3,7 @@
 - NodeJS v20.11.1
 - Express v4.18.3
 - Passport JWT / Local Auth
-- Postgres Client ('pg')
+- Postgres Client ('pg') / Node Module
 - Multer / Multer S3
 
 <br><br>

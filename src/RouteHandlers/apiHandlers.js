@@ -9,6 +9,6 @@ import * as db from "../Config/postgresPool.js";
 //       .catch((err) => res.json({ success: false, msg: err }));
 //   };
   export const getUsers = async (req, res) => {
-    const value = await db.query(`SELECT * FROM scr_users`);
+    const value = await db.query(`SELECT * FROM scr_image_sets`);
     res.send(value.rows);
   }
