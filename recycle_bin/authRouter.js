@@ -2,12 +2,9 @@ import Router from "express-promise-router";
 import passport from "passport";
 
 export const authRouter = Router();
-import { issueJWT } from "../Utils/utils.js";
+import { issueJWT } from "../src/Utils/utils.js";
 
-import {
-  registerUser,
-  findCountryAndUserRoleIds,
-} from "../RouteHandlers/authHandlers.js";
+import { registerUser, findCountryAndUserRoleIds } from "./authHandlers.js";
 
 authRouter.post(
   "/register/user",

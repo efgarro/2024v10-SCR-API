@@ -1,35 +1,25 @@
 import { uuidv7 } from "uuidv7";
 import { json } from "express";
-import * as db from "../Config/postgresPool.js";
+import * as db from "../src/Config/postgresPool.js";
 // const { pgClient } = require("../Config/postgresClient");
-import { generatePassword } from "../Utils/utils.js";
+import { generatePassword } from "../src/Utils/utils.js";
 
 export const registerUser = async (req, res, next) => {
-  const { first_name, last_name, email, user_role, country_code } =
-    req.body;
+  const { first_name, last_name, email, user_role, country_code } = req.body;
 
-  const user_id = uuidv7()
+  const user_id = uuidv7();
   const saltHash = generatePassword(req.body.password);
   const salt = saltHash.salt;
   const hash = saltHash.hash;
 
-//   try {
-    const response = await db.query(
-      `INSERT INTO scr_users (user_id, first_name, last_name, email, hash, salt, user_role, country_code) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-      [
-        user_id,
-        first_name,
-        last_name,
-        email,
-        hash,
-        salt,
-        user_role,
-        country_code,
-      ]
-    );
-//   } catch (err) {
-//     res.json({ success: false, msg: err });
-//   }
+  //   try {
+  const response = await db.query(
+    `INSERT INTO scr_users (user_id, first_name, last_name, email, hash, salt, user_role, country_code) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [user_id, first_name, last_name, email, hash, salt, user_role, country_code]
+  );
+  //   } catch (err) {
+  //     res.json({ success: false, msg: err });
+  //   }
   next();
 };
 

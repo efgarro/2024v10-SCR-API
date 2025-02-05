@@ -1,15 +1,19 @@
 import Router from "express-promise-router";
-import CognitoExpress from "cognito-express";
+// import CognitoExpress from "cognito-express";
+import { cognitoExpress } from "../src/Config/cognitoExpress";
+
+
+
 
 export const cognitoAuthRouter = Router();
 
 //Initializing CognitoExpress constructor
-const cognitoExpress = new CognitoExpress({
-  region: "us-east-1",
-  cognitoUserPoolId: "us-east-1_Sb6WG6oQB",
-  tokenUse: "access", //Possible Values: access | id
-  tokenExpiration: 3600000, //Up to default expiration of 1 hour (3600000 ms)
-});
+// const cognitoExpress = new CognitoExpress({
+//   region: "us-east-1",
+//   cognitoUserPoolId: "us-east-1_Sb6WG6oQB",
+//   tokenUse: "access", //Possible Values: access | id
+//   tokenExpiration: 3600000, //Up to default expiration of 1 hour (3600000 ms)
+// });
 
 //Our middleware that authenticates all APIs under our 'cognitoAuthRouter' Router
 cognitoAuthRouter.use(function (req, res, next) {

@@ -3,9 +3,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import passport from "passport";
 import { passportUseLocal, passportUseJWT } from "./Config/passportStrats.js";
-import { apiRouter } from "./Routers/apiRouter.js";
-import { authRouter } from "./Routers/authRouter.js";
-import { cognitoAuthRouter } from "./Routers/cognitoAuthRouter.js";
+import { scrApiRouter } from "./Routers/scrApiRouter.js";
+// import { authRouter } from "../recycle_bin/authRouter.js";
+import { cmAppRouter } from "./Routers/cmAppRouter.js";
 
 const serverApp = express();
 dotenv.config();
@@ -30,9 +30,9 @@ serverApp.use(express.json());
 serverApp.use(express.urlencoded({ extended: false }));
 
 // Mount routers
-serverApp.use("/", authRouter);
-serverApp.use("/", apiRouter);
-serverApp.use("/", cognitoAuthRouter);
+// serverApp.use("/", authRouter);
+serverApp.use("/", scrApiRouter);
+serverApp.use("/", cmAppRouter);
 
 serverApp.use((err, req, res, next) => {
   console.error(err.stack);
