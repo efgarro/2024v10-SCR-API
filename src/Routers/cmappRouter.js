@@ -2,6 +2,8 @@ import Router from "express-promise-router";
 import { cognitoExpress } from "../Config/cognitoExpress.js";
 import { parseImageFile, uploadToR2 } from "../RouteHandlers/cmAppHandlers.js";
 
+import { registerNewPlace } from "../RouteHandlers/cmAppHandlers.js";
+
 export const cmAppRouter = Router();
 
 /*
@@ -38,3 +40,10 @@ cmAppRouter.post(
     res.send("Thanx");
   }
 );
+
+// cmAppRouter.post("/register/place", registerNewLodge, (req, res) => {
+//   res.send({ success: true, message: "Lodge Created" });
+// });
+cmAppRouter.post("/register/place", registerNewPlace, (req, res) => {
+  console.log(req.body);
+});

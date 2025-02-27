@@ -40,6 +40,6 @@ import * as db from "../Config/postgresPool.js";
 // export const uploadToR2 = multer({ storage: storageR2 });
 
 export const getUsers = async (req, res) => {
-  const value = await db.query(`SELECT * FROM scr_image_sets`);
-  res.send(value.rows);
+  const { rows } = await db.query(`SELECT fn_one()`);
+  res.send(rows);
 };
