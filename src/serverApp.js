@@ -5,7 +5,7 @@ import passport from "passport";
 import { passportUseLocal, passportUseJWT } from "./Config/passportStrats.js";
 import { scrApiRouter } from "./Routers/scrApiRouter.js";
 // import { authRouter } from "../recycle_bin/authRouter.js";
-import { cmAppRouter } from "./Routers/cmAppRouter.js";
+import { cmAppRouter } from "./Routers/cmAppRouter.js"
 
 const serverApp = express();
 dotenv.config();
