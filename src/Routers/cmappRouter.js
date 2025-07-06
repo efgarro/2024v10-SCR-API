@@ -1,6 +1,12 @@
 import Router from "express-promise-router";
 import { cognitoExpress } from "../Config/cognitoExpress.js";
-import { parseImageFile, uploadToR2 } from "../RouteHandlers/cmAppHandlers.js";
+import {
+  parseImageFile,
+  insertImageIntoDB,
+  uploadImageToR2,
+  getImageSetStack,
+  updateImageSetStack,
+} from "../RouteHandlers/cmAppHandlers.js";
 
 import { registerPlace } from "../RouteHandlers/cmAppHandlers.js";
 
@@ -26,6 +32,11 @@ cmAppRouter.use(function (req, res, next) {
 });
 */
 
+cmAppRouter.param("image_set_id", (req, res, next, image_set_id) => {
+  req.body.image_set_id = image_set_id;
+  next();
+});
+
 cmAppRouter.get("/myfirstcognito", function (req, res, next) {
   console.log("Hellow");
   res.send(`Hi ${res.locals.user.username}, your API call is authenticated!`);
@@ -34,16 +45,23 @@ cmAppRouter.get("/myfirstcognito", function (req, res, next) {
 cmAppRouter.post(
   "/upload",
   parseImageFile,
-  uploadToR2.single("file"),
-  (req, res) => {
-    console.log(req.body);
-    res.send("Thanx");
-  }
+  uploadImageToR2.single("file"),
+  insertImageIntoDB
+  // (req, res) => {
+  //   console.log("MW 3");
+  //   console.log(req.body);
+  //   console.log(req.file);
+  //   res.json({ url: `https://r2storage.soy-cr.com/${req.file.key}` });
+  // }
 );
 
 // cmAppRouter.post("/register/place", registerNewLodge, (req, res) => {
 //   res.send({ success: true, message: "Lodge Created" });
 // });
-cmAppRouter.post("/register/place", registerPlace, (req, res) => {
-  res.send("Thanx");
-});
+cmAppRouter.post("/register/place", registerPlace);
+
+cmAppRouter.get(
+  "/register/place/image_set_stack/:image_set_id",
+  getImageSetStack
+);
+cmAppRouter.post("/register/place/image_set_stack", updateImageSetStack);

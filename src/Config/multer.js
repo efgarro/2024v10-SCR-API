@@ -4,8 +4,8 @@ import multerS3 from "multer-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 
 import dotenv from "dotenv";
+import { uuidv7 } from "uuidv7";
 dotenv.config();
-
 
 const s3 = new S3Client({
   region: "auto",
@@ -24,12 +24,16 @@ export const storageR2 = multerS3({
     cb(null, { fieldName: file.fieldname });
   },
   key: function (req, file, cb) {
-    cb(null, Date.now().toString());
-    // cb(null, file.originalname);
+    req.body.image_id = uuidv7();
+    req.body.image_tag = req.body.image_id.substring(24)
+    cb(
+      null,
+      `${req.body.hub}/${req.body.place_type}/${req.body.image_tag}_${file.originalname}`
+    );
   },
 });
 
-const storageDS = multer.diskStorage({
+export const storageDS = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
   },
