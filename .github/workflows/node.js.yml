@@ -26,8 +26,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: touch .env
-    - run: echo "$({secrets.PROD_ENV})"
-    - run: echo "$({secrets.PROD_ENV})" > .env
+    - run: echo '$({secrets.PROD_ENV})'
+    - run: echo '$({secrets.PROD_ENV})' > .env
     # - run: |
     #        touch .env
     #        echo "$({secrets.PROD_ENV})" > .env
