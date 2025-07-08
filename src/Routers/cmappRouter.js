@@ -65,3 +65,8 @@ cmAppRouter.get(
   getImageSetStack
 );
 cmAppRouter.post("/register/place/image_set_stack", updateImageSetStack);
+
+cmAppRouter.get("/hellow)", (req, res) => {
+  console.log(req);
+  res.status(200).send("Hellow Bella");
+});
