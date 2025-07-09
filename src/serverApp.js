@@ -11,7 +11,8 @@ const serverApp = express();
 dotenv.config();
 
 // require("dotenv").config();
-const PORT = process.env.PORT || 4000;
+// const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 
 // serverApp.use(express.static('public'));
 
