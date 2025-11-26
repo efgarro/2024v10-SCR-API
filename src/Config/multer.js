@@ -16,32 +16,21 @@ const s3 = new S3Client({
   },
 });
 
-export const storageR2 = multerS3({
-  s3: s3,
-  bucket: "scr-v2023a",
-  acl: "public-read",
-  metadata: function (req, file, cb) {
-    cb(null, { fieldName: file.fieldname });
-  },
-  key: function (req, file, cb) {
-    req.body.image_id = uuidv7();
-    req.body.image_tag = req.body.image_id.substring(24)
-    cb(
-      null,
-      `${req.body.hub}/${req.body.place_type}/${req.body.image_tag}_${file.originalname}`
-    );
-  },
-});
-
-export const storageDS = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "-" + uniqueSuffix);
-    // cb(null, file.originalname);
-  },
-});
-
-const storageMS = multer.memoryStorage();
+export const storageR2 = (bucket) => {
+  return multerS3({
+    s3: s3,
+    bucket: bucket,
+    acl: "public-read",
+    metadata: function (req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+      req.body.image_id = uuidv7();
+      req.body.image_tag = req.body.image_id.substring(24);
+      cb(
+        null,
+        `${req.body.cluster_name}/${req.body.image_tag}_${file.originalname}`
+      );
+    },
+  });
+};

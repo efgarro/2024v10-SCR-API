@@ -1,16 +1,25 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import pg from "pg";
 const { Pool } = pg;
 
-// const pool = new Pool();
+const scrPool = new Pool({
+  host: "54.205.165.107",
+  port: 5432,
+  database: "2024v10-scr-db",
+  user: process.env.PG_USER,
+  password: process.env.PG_PWD,
+});
 
-// const pgPoolPassword = process.env.PG_PWD;
+export const scrQuery = (text, params) => scrPool.query(text, params);
 
-const pool = new Pool({
-      host: "54.205.165.107",
-      port: 5432,
-      database: "2024v10-scr-db",
-      user: process.env.PG_USER,
-      password: process.env.PG_PWD,
-    })
+const blnPool = new Pool({
+  host: "54.205.165.107",
+  port: 5432,
+  database: "2025v12-bln-db",
+  user: process.env.PG_USER,
+  password: process.env.PG_PWD,
+});
 
-export const query = (text, params) => pool.query(text, params);
+export const blnQuery = (text, params) => blnPool.query(text, params);
