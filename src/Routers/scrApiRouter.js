@@ -33,3 +33,7 @@ scrApiRouter.get(
 scrApiRouter.post("/register/place/image_set_stack", updateImageSetStack);
 
 scrApiRouter.get("/register/place/images/select_place", selectPlaceToAddImages);
+
+scrApiRouter.get("/test", (req, res)=>{
+  return res.send({message: "Testing srcAPI"})
+});
