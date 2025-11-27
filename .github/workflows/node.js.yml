@@ -27,7 +27,7 @@ jobs:
       - run: touch .env
       - run: echo "${{secrets.PROD_ENV}}"
       - run: echo "${{secrets.PROD_ENV}}" > .env
-      - run: pm2 restart scrAPI
+      - run: pm2 restart serverApp
     # - run: |
     #        touch .env
     #        echo "$({secrets.PROD_ENV})" > .env
