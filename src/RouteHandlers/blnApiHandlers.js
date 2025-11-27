@@ -54,6 +54,16 @@ export const getImageSetStack = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  console.log(response.rows[0].get_image_cluster_stack)
+  console.log(response.rows[0].get_image_cluster_stack);
   res.status(200).json(response.rows[0].get_image_cluster_stack);
+};
+
+export const getCheapQuery = async (req, res) => {
+  let response;
+  try {
+    response = await blnQuery(`SELECT 1`);
+  } catch (err) {
+    console.log(err);
+  }
+  res.status(200).json(response);
 };
