@@ -7,8 +7,8 @@ import { blnApiRouter } from "./Routers/blnApiRouter.js";
 
 const serverApp = express();
 
-const PORT = process.env.PORT || 4000;
-
+// const PORT = process.env.PORT || 4000;
+const PORT = 4040;
 
 // Add middleware for handling CORS requests from index.html
 serverApp.use(cors());
