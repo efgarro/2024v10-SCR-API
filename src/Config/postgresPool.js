@@ -1,22 +1,12 @@
-// import { join } from "node:path";
-// import dotenv from "dotenv";
-// dotenv.config({
-//   path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
-// });
-// console.log(join(import.meta.dirname, "../../.env"));
+import { join } from "node:path";
+import dotenv from "dotenv";
 
-// dotenv.config({
-//   path: join(import.meta.dirname, "../../.env"),
-// });
-
-// import {env} from "../../.env"
+dotenv.config({
+  path: join(import.meta.dirname, "../../.env"),
+});
 
 import pg from "pg";
 const { Pool } = pg;
-
-console.log("postgresPool");
-console.log(process.env.PG_USER);
-console.log(process.env.PG_PWD);
 
 const scrPool = new Pool({
   host: "54.205.165.107",
