@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 // });
 
 dotenv.config({
-  path: "../../.env",
+  path: __dirname + '/../.env',
 });
 
-// import {env} from "../../"
+// import {env} from "../../.env"
 
 import pg from "pg";
 const { Pool } = pg;
