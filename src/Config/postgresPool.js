@@ -18,8 +18,10 @@ const blnPool = new Pool({
   host: "54.205.165.107",
   port: 5432,
   database: "2025v12-bln-db",
-  user: process.env.PG_USER,
-  password: process.env.PG_PWD,
+  user: "efgarro",
+  password: "Due427ga",
+  // user: process.env.PG_USER,
+  // password: process.env.PG_PWD,
 });
 
 export const blnQuery = (text, params) => blnPool.query(text, params);

@@ -61,7 +61,7 @@ export const getImageSetStack = async (req, res) => {
 export const getCheapQuery = async (req, res) => {
   let response;
   try {
-    response = await blnQuery(`SELECT 10`);
+    response = await blnQuery(`SELECT 10`, []);
     // response = await blnQuery(`SELECT * FROM bln_image_clusters`);
   } catch (err) {
     console.log(err);
