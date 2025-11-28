@@ -5,14 +5,6 @@ dotenv.config({
   path: join(import.meta.dirname, "../.env"),
 });
 
-// dotenv.config({
-//   path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
-// });
-
-// dotenv.config({
-//   path: __dirname + "../.env",
-// });
-
 import express from "express";
 import cors from "cors";
 import { scrApiRouter } from "./Routers/scrApiRouter.js";
@@ -20,8 +12,7 @@ import { blnApiRouter } from "./Routers/blnApiRouter.js";
 
 const serverApp = express();
 
-// const PORT = process.env.PORT || 4000;
-const PORT = 4040;
+const PORT = process.env.PORT || 4000;
 
 // Add middleware for handling CORS requests from index.html
 serverApp.use(cors());
@@ -40,7 +31,5 @@ serverApp.use((err, req, res, next) => {
 });
 
 serverApp.listen(PORT, () => {
-  console.log(`serverApp is listening on port ${PORT}`);
-  console.log(process.env.PG_USER);
-  console.log(process.env.PG_PWD);
+  console.log(`serverApp is listening on port ${process.env.PORT}`);
 });
