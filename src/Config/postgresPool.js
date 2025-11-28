@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 // });
 
 dotenv.config({
-  path: __dirname + '/../.env',
+  path: import.meta.dirname + '/../.env',
 });
 
 // import {env} from "../../.env"
