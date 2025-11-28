@@ -1,11 +1,13 @@
-import multer from "multer";
+import { join } from "node:path";
+import dotenv from "dotenv";
 import multerS3 from "multer-s3";
 
 import { S3Client } from "@aws-sdk/client-s3";
 
-import dotenv from "dotenv";
 import { uuidv7 } from "uuidv7";
-dotenv.config();
+dotenv.config({
+  path: join(import.meta.dirname, "../../.env"),
+});
 
 const s3 = new S3Client({
   region: "auto",
