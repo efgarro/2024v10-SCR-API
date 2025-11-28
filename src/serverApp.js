@@ -28,4 +28,6 @@ serverApp.use((err, req, res, next) => {
 
 serverApp.listen(PORT, () => {
   console.log(`serverApp is listening on port ${PORT}`);
+  console.log(process.env.PG_USER);
+  console.log(process.env.PG_PWD);
 });
