@@ -1,11 +1,13 @@
 import dotenv from "dotenv";
-dotenv.config({path: "c"});
+dotenv.config({
+  path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
+});
 
 import pg from "pg";
 const { Pool } = pg;
 
-console.log(process.env.PG_USER)
-console.log(process.env.PG_PWD)
+console.log(process.env.PG_USER);
+console.log(process.env.PG_PWD);
 
 const scrPool = new Pool({
   host: "54.205.165.107",
