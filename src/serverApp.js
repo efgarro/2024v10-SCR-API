@@ -1,7 +1,12 @@
 import dotenv from "dotenv";
 dotenv.config({
-  path: "../.env",
+  path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
 });
+
+// dotenv.config({
+//   path: "../.env",
+// });
+
 import express from "express";
 import cors from "cors";
 import { scrApiRouter } from "./Routers/scrApiRouter.js";

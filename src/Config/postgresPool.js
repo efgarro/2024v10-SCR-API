@@ -1,7 +1,13 @@
 import dotenv from "dotenv";
+// dotenv.config({
+//   path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
+// });
+
 dotenv.config({
   path: "../../.env",
 });
+
+// import {env} from "../../"
 
 import pg from "pg";
 const { Pool } = pg;
