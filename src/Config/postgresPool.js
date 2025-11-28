@@ -2,9 +2,10 @@ import dotenv from "dotenv";
 // dotenv.config({
 //   path: "/home/ubuntu/actions-runner-2024v10-scr-api/_work/2024v10-SCR-API/2024v10-SCR-API/.env",
 // });
+console.log(import.meta.dirname);
 
 dotenv.config({
-  path: import.meta.dirname + '/../.env',
+  path: import.meta.dirname + "../../.env",
 });
 
 // import {env} from "../../.env"
@@ -12,6 +13,7 @@ dotenv.config({
 import pg from "pg";
 const { Pool } = pg;
 
+console.log("postgresPool");
 console.log(process.env.PG_USER);
 console.log(process.env.PG_PWD);
 
