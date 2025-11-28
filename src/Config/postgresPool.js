@@ -4,6 +4,9 @@ dotenv.config();
 import pg from "pg";
 const { Pool } = pg;
 
+console.log(process.env.PG_USER)
+console.log(process.env.PG_PWD)
+
 const scrPool = new Pool({
   host: "54.205.165.107",
   port: 5432,
