@@ -1,6 +1,9 @@
 node_modules/
 .env
 uploads/
-recycle
-recycle_bin
+recycle/
+recycle_bin/
 AI optimized
+src/Config/default
+src/ca_cert.pem
+src/ca_priv_key.pem
