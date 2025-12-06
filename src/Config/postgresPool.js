@@ -5,6 +5,9 @@ dotenv.config({
   path: join(import.meta.dirname, "../../.env"),
 });
 
+console.log(process.env.PG_USER)
+console.log(process.env.PG_PWD)
+
 import pg from "pg";
 const { Pool } = pg;
 
