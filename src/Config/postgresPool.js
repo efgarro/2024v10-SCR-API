@@ -77,4 +77,6 @@ const blnPool = new Pool({
 //   password: process.env.PG_PWD,
 // });
 
+// bln
+
 export const blnQuery = (text, params) => blnPool.query(text, params);
