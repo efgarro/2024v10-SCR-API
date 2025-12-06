@@ -35,7 +35,7 @@ try {
   throw error;
 }
 
-const secret = response.SecretString;
+const secret = JSON.parse(response.SecretString);
 
 // Your code goes here
 console.log("secret");
