@@ -36,5 +36,5 @@ blnApiRouter.get("/cluster/cluster_stack/:image_cluster_id", getImageSetStack);
 blnApiRouter.get("/cheap-query", getCheapQuery);
 
 blnApiRouter.get("/", (req, res) => {
-  return res.status(200).send({ message: "api.soy-cr.com/bln" });
+  return res.status(200).send({ message: "/bln" });
 });

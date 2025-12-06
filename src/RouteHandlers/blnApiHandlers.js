@@ -62,9 +62,11 @@ export const getCheapQuery = async (req, res) => {
   let response;
   try {
     // response = await blnQuery(`SELECT 10`, []);
-    response = await blnQuery(`SELECT * FROM bln_image_clusters`);
+    response = await blnQuery(`SELECT 1`);
+    console.log(response);
   } catch (err) {
     console.log(err);
   }
-  res.status(200).json(response.rows[0]);
+  // res.status(200).json(response.rows[0]);
+  res.status(200).json(response);
 };
