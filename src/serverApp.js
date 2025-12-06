@@ -1,9 +1,9 @@
-import { join } from "node:path";
-import dotenv from "dotenv";
+// import { join } from "node:path";
+// import dotenv from "dotenv";
 
-dotenv.config({
-  path: join(import.meta.dirname, "../.env"),
-});
+// dotenv.config({
+//   path: join(import.meta.dirname, "../.env"),
+// });
 
 import express from "express";
 import cors from "cors";
@@ -12,7 +12,7 @@ import { blnApiRouter } from "./Routers/blnApiRouter.js";
 
 const serverApp = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 
 // Add middleware for handling CORS requests from index.html
 serverApp.use(cors());
@@ -31,5 +31,5 @@ serverApp.use((err, req, res, next) => {
 });
 
 serverApp.listen(PORT, () => {
-  console.log(`serverApp is listening on port ${process.env.PORT}`);
+  console.log(`serverApp is listening on port ${PORT}`);
 });

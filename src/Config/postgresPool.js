@@ -38,7 +38,9 @@ try {
 const secret = response.SecretString;
 
 // Your code goes here
-
+console.log("secret");
+console.log(secret);
+console.log("User/Password");
 console.log(secret.user);
 console.log(secret.password);
 
